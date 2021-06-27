@@ -2,15 +2,12 @@
 import os
 import urllib.parse
 from flask import Flask, send_file, abort
-from selenium import webdriver
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary #We import this so we can specify the Firefox browser binary location
-import os
 
 from splinter import Browser
-executable_path = {'executable_path':'/app/vendor/firefox/firefox'}
+executable_path = {'executable_path':'</path/to/chrome>'}
 
 app = Flask(__name__)
-browser = Browser('firefox', headless=True, **executable_path)
+browser = Browser('chrome', headless=True, **executable_path)
 
 
 @app.route('/')
