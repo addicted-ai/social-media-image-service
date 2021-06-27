@@ -31,7 +31,7 @@ def generate_image(encoded_url):
         app.logger.info(f'Not allowed to generate preview for this domain: {url_to_fetch}')
         abort(405)
     app.logger.debug(f'Generating preview for {url_to_fetch}')
-    driver.get(url)
+    driver.get(url_to_fetch)
     sleep(1)
 
     screenshot_path = '/tmp/'
