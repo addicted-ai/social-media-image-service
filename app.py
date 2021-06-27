@@ -2,13 +2,18 @@
 import os
 import urllib.parse
 from flask import Flask, send_file, abort
+from time import sleep
 
-from splinter import Browser
-executable_path = {'executable_path':'/app/.apt/usr/bin/google-chrome'}
+from selenium import webdriver
+from selenium.webdriver import ChromeOptions
 
 app = Flask(__name__)
-browser = Browser('chrome', headless=True, **executable_path)
 
+options = ChromeOptions()
+options.headless=True
+options.add_argument('--ignore-certificate-errors')
+options.binary_location = "/app/.apt/usr/bin/google-chrome"
+driver = webdriver.Chrome(chrome_options=options)
 
 @app.route('/')
 def view_landing():
@@ -26,26 +31,13 @@ def generate_image(encoded_url):
         app.logger.info(f'Not allowed to generate preview for this domain: {url_to_fetch}')
         abort(405)
     app.logger.debug(f'Generating preview for {url_to_fetch}')
-    browser.driver.set_window_size(1200, 630)
-    browser.visit(url_to_fetch)
+    driver.get(url)
+    sleep(1)
+
     screenshot_path = '/tmp/'
-    screenshot = browser.screenshot(screenshot_path)
+    screenshot = driver.save_screenshot(screenshot_path + "image.png")
+
     return send_file(screenshot, mimetype='image/png')
-
-
-@app.route('/<token>.png')
-def generate_keepthescore_image(token):
-    """
-    Legacy route for keepthescore.
-    """
-    url = f'https://keepthescore.co/board/{token}/'
-    browser.driver.set_window_size(1200, 630)
-    browser.visit(url)
-    app.logger.info(f'Preview image: visiting {url}')
-    temp_dir = '/tmp/'
-    path = f'{temp_dir}{token}'
-    screenshot_path = browser.screenshot(path)
-    return send_file(screenshot_path, mimetype='image/png')
 
 
 if __name__ == '__main__':
