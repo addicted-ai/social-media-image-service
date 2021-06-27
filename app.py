@@ -32,7 +32,7 @@ def generate_image(encoded_url):
     #     abort(405)
     app.logger.debug(f'Generating preview for {url_to_fetch}')
     driver.get(url_to_fetch)
-    sleep(1)
+    sleep(2)
 
     screenshot_path = '/tmp/image.png'
     driver.save_screenshot(screenshot_path)
