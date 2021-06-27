@@ -7,9 +7,10 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary #We import t
 import os
 
 from splinter import Browser
+executable_path = {'executable_path':'/app/vendor/firefox/firefox'}
 
 app = Flask(__name__)
-browser = Browser('firefox', headless=True)
+browser = Browser('firefox', headless=True, **executable_path)
 
 
 @app.route('/')
