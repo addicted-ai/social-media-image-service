@@ -34,10 +34,10 @@ def generate_image(encoded_url):
     driver.get(url_to_fetch)
     sleep(1)
 
-    screenshot_path = '/tmp/'
-    screenshot = driver.save_screenshot(screenshot_path + "image.png")
-
-    return send_file(screenshot, mimetype='image/png')
+    screenshot_path = '/tmp/image.png'
+    driver.save_screenshot(screenshot_path)
+    
+    return send_file(screenshot_path, mimetype='image/png')
 
 
 if __name__ == '__main__':
