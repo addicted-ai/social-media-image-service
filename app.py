@@ -4,7 +4,7 @@ import urllib.parse
 from flask import Flask, send_file, abort
 
 from splinter import Browser
-executable_path = {'executable_path':'</path/to/chrome>'}
+executable_path = {'executable_path':'/app/.apt/usr/bin/google-chrome'}
 
 app = Flask(__name__)
 browser = Browser('chrome', headless=True, **executable_path)
