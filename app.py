@@ -1,4 +1,3 @@
-# -*- coding: UTF-8 -*-
 import os
 import urllib.parse
 from flask import Flask, send_file, abort
@@ -33,10 +32,12 @@ def generate_image(encoded_url):
     app.logger.debug(f'Generating preview for {url_to_fetch}')
     driver.get(url_to_fetch)
     sleep(2)
+    driver.set_window_size(1100, 600)
 
     screenshot_path = '/tmp/image.png'
     driver.save_screenshot(screenshot_path)
-    
+    driver.quit()
+
     return send_file(screenshot_path, mimetype='image/png')
 
 
