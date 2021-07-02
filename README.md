@@ -1,13 +1,14 @@
 # Social Media Image Service
-This is a dockerized Python Flask application which renders a screenshot for a given URL. It is useful for automatically generating social 
+<a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy"></a>
+This is a Python Flask application which renders a screenshot for a given URL. It is useful for automatically generating social 
 media images for content which doesn't have its own social media image and is shared on services like Twitter, WhatsApp or Facebook.
 
 Read this [article for the whole backstory](https://casparwre.de/blog/social-media-image-generation-python/).
 
-Screenshots are rendered using the Firefox webdriver for Selenium.
+Screenshots are rendered using the Chrome webdriver for Selenium.
 
 ## Deploying
-The easiest way to deploy this is using Docker. The recommended RAM for the container is 4GB.
+The easiest way to deploy this is using Heroku Deploy Button.
 
 You must set an ENV variable defining the domain for which the images can be rendered for. To be able to render images for Wikipedia articles, for instance, do this
 

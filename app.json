@@ -1,0 +1,13 @@
+{
+    "name": "Social-Image-Generator",
+    "description": "Generates wesite screenshot for Open Graph meta tags used by Social Media",
+    "keywords": [
+      "flask",
+      "og",
+      "flask-app",
+      "Open Graph",
+      "Selenium"
+    ],
+    "repository": "https://github.com/addicted-ai/social-media-image-service/",
+    "website": "https://addicted-ai.herokuapps.com"
+  }
