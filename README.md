@@ -1,5 +1,5 @@
 # Social Media Image Service
-<a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy"></a>
+<a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy"></a><br>
 This is a Python Flask application which renders a screenshot for a given URL. It is useful for automatically generating social 
 media images for content which doesn't have its own social media image and is shared on services like Twitter, WhatsApp or Facebook.
 
