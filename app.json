@@ -12,6 +12,9 @@
     "website": "https://addicted-ai.herokuapps.com",
     "buildpacks": [
       {
+        "url": "heroku/python"
+      },
+      {
         "url": "https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/google-chrome.tgz"
       },
       {
