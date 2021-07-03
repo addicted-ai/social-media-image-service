@@ -9,5 +9,13 @@
       "Selenium"
     ],
     "repository": "https://github.com/addicted-ai/social-media-image-service/",
-    "website": "https://addicted-ai.herokuapps.com"
+    "website": "https://addicted-ai.herokuapps.com",
+    "buildpacks": [
+      {
+        "url": "https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/google-chrome.tgz"
+      },
+      {
+        "url": "https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/chromedriver.tgz"
+      }
+    ]
   }
