@@ -1,4 +1,5 @@
 import os
+from PIL import Image
 import urllib.parse
 from flask import Flask, send_file, abort
 from time import sleep
@@ -36,8 +37,11 @@ def generate_image(encoded_url):
 
     screenshot_path = '/tmp/image.png'
     driver.save_screenshot(screenshot_path)
-    driver.quit()
-
+    output_size = (550,300)
+    i = Image.open(screenshot_path)
+    i.thumbnail(output_size)
+    i.save(screenshot_path)
+    # driver.quit()
     return send_file(screenshot_path, mimetype='image/png')
 
 
